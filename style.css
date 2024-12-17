@@ -186,7 +186,7 @@ body {
     gap: 16px;
     padding: 1vw;
     border-radius: 3rem;
-    opacity: 0;
+    opacity: 1;
     transform: translateY(-1em);
 }
 
@@ -203,15 +203,26 @@ body {
     transform: none;
 }
 
-.img-examples {
+.block-3 {
     position: relative;
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: var(--green);
+    background-color: var(--pink);
 }
 
-.lusion-img {
-    width: 100vh;
+.explanation-1 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: var(--text-color);
+
+}
+
+.squiggle-line {
+    overflow: hidden;
+    position: absolute;
+    top: 380%;
+    left: -40%;
+    stroke-width: 0.8rem;
 }

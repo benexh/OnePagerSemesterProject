@@ -1,4 +1,18 @@
+const line = document.querySelector('.squiggle-line');
+const path = line.querySelector('path');
+
+const scroll = () => {
+    const pathLength = path.getTotalLength();
+
+
+    path.style.strokeDasharray = `${pathLength * 0.5}`;
+};
+
+scroll();
+
 window.addEventListener('scroll', () => {
+    scroll();
+
     const scrollTop = window.scrollY || document.documentElement.scrollTop;
     const windowHeight = window.innerHeight;
     const scrollFraction = Math.min(scrollTop / windowHeight, 1); // Ensure value is between 0 and 
@@ -21,7 +35,7 @@ window.addEventListener('scroll', () => {
 
 const elements = document.querySelectorAll('.message-bubble');
 
-const observer = new IntersectionObserver((entries) => {
+/*const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('visible');
@@ -31,7 +45,7 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, { threshold: 0.5});
 
-elements.forEach(el => observer.observe(el));
+elements.forEach(el => observer.observe(el));*/
 
 
 window.onload = function() {
@@ -61,3 +75,4 @@ window.onload = function() {
         }
     });
 }
+
