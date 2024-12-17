@@ -1,0 +1,217 @@
+:root {
+    --text-color: #FDFDFD;
+    --off-white: #EBEBEB;
+    --royal-blue: #001BBA;
+    --orange: #FF502C;
+    --pink: #F0AFD8;
+    --yellow: #EBBF41;
+    --green: #61D2AF;
+    --green-light: #93DEC7;
+    --green-dark: #5BB297;
+    --green-ultralight: #BDF5E2;
+}
+
+.libre-baskerville-regular {
+    font-family: "Libre Baskerville", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+.libre-baskerville-bold {
+    font-family: "Libre Baskerville", serif;
+    font-weight: 700;
+    font-style: normal;
+  }
+  
+.libre-baskerville-regular-italic {
+    font-family: "Libre Baskerville", serif;
+    font-weight: 400;
+    font-style: italic;
+  }
+  
+
+@font-face {
+    font-family: PPMORI;
+    src: url(fonts/PPMori-Regular.otf) format('opentype');
+}
+
+body {
+    font-family: "PPMORI";
+    margin: 0;
+    padding: 0;
+    height: 1000vh;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+}
+
+
+.hero {
+    height: 200vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    color: var(--text-color);
+    padding: 20px;
+    overflow: hidden;
+    background: var(--royal-blue);
+    transition: background-color 0.3s ease;
+}
+
+.main-title {
+    display: flex;
+    flex-direction: column;
+    width: 106%;
+    justify-content: flex-start;
+    font-size: 18vw;
+    margin: 0;
+    text-transform: uppercase;
+    gap: -20vw;
+    margin-top: -6%;
+    margin-left: -4%;
+    padding: 0;
+}
+
+.main-title .scrolly {
+    font-style: italic;
+    text-align: 10%;
+    font-family: "LibreBaskerville";
+}
+
+.main-title .telling {
+    text-align: right;
+    font-weight: 350;
+}
+
+.subtitle {
+    align-self: flex-start;
+    transform: translateX(65%);
+    font-size: 1.5vw;
+    margin-top: -2%;
+}
+
+.scroll-indicator {
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 90vh;
+    gap: 16px;
+}
+
+.telling-italic {
+    font-style: italic;
+}
+
+.ornament-spinning {
+    animation: rotate 0.5s linear infinite;
+    animation-play-state: paused;
+    animation-delay: calc(var(--scroll) * -1s);
+}
+
+@keyframes rotate {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.block-1 {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--pink);
+    text-align: center;
+    font-weight: 600;
+    line-height: 100%;
+    font-size: 6vw;
+    color: var(--orange);
+    overflow: hidden;
+    scroll-snap-align: center;
+}
+
+.move-text-1 {
+    position: relative;
+    text-transform: uppercase;
+    transform-origin: center;
+    overflow: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+.top-text {
+    transform: translateY(-100%);
+    overflow: hidden;
+}
+
+.bottom-text {
+    transform: translateY(100%);
+    overflow: hidden;
+}
+
+.combines {
+    text-transform: lowercase;
+    font-weight: 200;
+    font-size: 2vw;
+}
+
+.with {
+    text-transform: lowercase;
+    font-weight: 200;
+    font-size: 2vw;
+}
+
+.block-2 {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 3rem;
+    background-color: var(--pink);
+    text-align: center;
+    overflow: hidden;
+    color: var(--text-color);
+    font-size: 1.5vw;
+    text-transform: uppercase;
+}
+
+.message-bubble {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 1vw;
+    border-radius: 3rem;
+    opacity: 0;
+    transform: translateY(-1em);
+}
+
+.message-bubble-orange {
+    background-color: var(--orange);
+}
+
+.message-bubble-yellow {
+    background-color: var(--yellow);
+}
+
+.message-bubble.visible {
+    opacity: 1;
+    transform: none;
+}
+
+.img-examples {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--green);
+}
+
+.lusion-img {
+    width: 100vh;
+}
