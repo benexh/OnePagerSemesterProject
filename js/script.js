@@ -1,18 +1,4 @@
-const line = document.querySelector('.squiggle-line');
-const path = line.querySelector('path');
-
-const scroll = () => {
-    const pathLength = path.getTotalLength();
-
-
-    path.style.strokeDasharray = `${pathLength * 0.5}`;
-};
-
-scroll();
-
 window.addEventListener('scroll', () => {
-    scroll();
-
     const scrollTop = window.scrollY || document.documentElement.scrollTop;
     const windowHeight = window.innerHeight;
     const scrollFraction = Math.min(scrollTop / windowHeight, 1); // Ensure value is between 0 and 
@@ -74,5 +60,26 @@ window.onload = function() {
             scrub: true,
         }
     });
-}
+};
 
+
+const svg = document.querySelector('.squiggle-line');
+const path = svg.querySelector('path');
+
+const animationStartOffset = document.body.clientHeight * 3.855;
+
+
+const scroll = () => {
+    const pathLength = path.getTotalLength();
+    const distance = (window.scrollY - animationStartOffset) * 2;
+    const totalDistance = document.body.clientHeight - window.innerHeight;
+
+    const percentage = distance/totalDistance;
+    
+    path.style.strokeDasharray = `${pathLength}`;
+    path.style.strokeDashoffset = `${pathLength * (1 - percentage)}`;
+};
+
+scroll();
+
+window.addEventListener('scroll', scroll);

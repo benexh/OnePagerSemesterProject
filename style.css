@@ -216,13 +216,18 @@ body {
     text-align: center;
     font-size: 2.5rem;
     color: var(--text-color);
-
+    z-index: 2;
 }
 
 .squiggle-line {
-    overflow: hidden;
+    stroke: var(--royal-blue);
+    stroke-width: 12;
+    stroke-linecap: round;
+    stroke-dasharray: 0;
+    stroke-dashoffset: 0;
     position: absolute;
     top: 380%;
     left: -40%;
     stroke-width: 0.8rem;
+    z-index: 0;
 }
