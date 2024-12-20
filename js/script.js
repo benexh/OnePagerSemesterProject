@@ -13,6 +13,8 @@ window.addEventListener('scroll', () => {
     });
 
     document.querySelector('.hero').style.backgroundColor = `rgb(${newColor.join(',')})`;
+    document.querySelector('.block-1').style.backgroundColor = `rgb(${newColor.join(',')})`;
+
 
     document.body.style.setProperty('--scroll', window.scrollY / (document.body.offsetHeight - window.innerHeight))
 

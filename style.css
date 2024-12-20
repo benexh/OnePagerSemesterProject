@@ -49,8 +49,8 @@ body {
 .hero {
     height: 200vh;
     display: flex;
-    flex-direction: column;
-    position: relative;
+    align-items: flex-start;
+    justify-content: center;
     color: var(--text-color);
     padding: 20px;
     overflow: hidden;
@@ -61,31 +61,20 @@ body {
 .main-title {
     display: flex;
     flex-direction: column;
-    width: 106%;
+    width: 100%;
+    height: 100%;
     justify-content: flex-start;
-    font-size: 18vw;
+    align-items: center;
+    font-family: "salted";
+    font-size: 9vw;
     margin: 0;
     text-transform: uppercase;
     gap: -20vw;
-    margin-top: -6%;
-    margin-left: -4%;
     padding: 0;
-}
-
-.main-title .scrolly {
-    font-style: italic;
-    text-align: 10%;
-    font-family: "LibreBaskerville";
-}
-
-.main-title .telling {
-    text-align: right;
-    font-weight: 350;
+    padding-top: 15%;
 }
 
 .subtitle {
-    align-self: flex-start;
-    transform: translateX(65%);
     font-size: 1.5vw;
     margin-top: -2%;
 }
@@ -131,6 +120,7 @@ body {
     color: var(--orange);
     overflow: hidden;
     scroll-snap-align: center;
+    transition: background-color 0.3s ease;
 }
 
 .move-text-1 {
@@ -220,7 +210,7 @@ body {
 }
 
 .squiggle-line {
-    stroke: var(--royal-blue);
+    stroke: var(--orange);
     stroke-width: 12;
     stroke-linecap: round;
     stroke-dasharray: 0;
