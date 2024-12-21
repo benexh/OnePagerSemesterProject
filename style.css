@@ -101,13 +101,13 @@ body {
 
 .squiggle-line-1 {
     position: absolute;
-    top: 150%;
-    left: 25%;
+    top: 200%;
+    left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 20;
-    height: 100vh;
-    width: 100vh;
-    stroke: var(--green);
+    z-index: 1;
+    width: 100vw;
+    height: auto;
+    stroke: var(--orange);
     stroke-width: 12;
     stroke-linecap: round;
 }
