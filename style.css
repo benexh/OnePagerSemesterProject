@@ -99,6 +99,19 @@ body {
     }
 }
 
+.squiggle-line-1 {
+    position: absolute;
+    top: 150%;
+    left: 25%;
+    transform: translate(-50%, -50%);
+    z-index: 20;
+    height: 100vh;
+    width: 100vh;
+    stroke: var(--green);
+    stroke-width: 12;
+    stroke-linecap: round;
+}
+
 .scroll-indicator {
     display: flex;
     align-items:center;

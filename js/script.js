@@ -65,15 +65,15 @@ window.onload = function() {
 };
 
 
-const svg = document.querySelector('.squiggle-line');
+const svg = document.querySelector('.squiggle-line-1');
 const path = svg.querySelector('path');
 
-const animationStartOffset = document.body.clientHeight * 3.855;
+const animationStartOffset = document.body.clientHeight * 1.2;
 
 
 const scroll = () => {
     const pathLength = path.getTotalLength();
-    const distance = (window.scrollY - animationStartOffset) * 2;
+    const distance = (window.scrollY - animationStartOffset) * 3;
     const totalDistance = document.body.clientHeight - window.innerHeight;
 
     const percentage = distance/totalDistance;
