@@ -158,7 +158,7 @@ body {
     font-weight: 600;
     line-height: 100%;
     font-size: 6vw;
-    color: var(--orange);
+    color: var(--text-color);
     overflow: hidden;
     scroll-snap-align: center;
     transition: background-color 0.3s ease;
@@ -169,6 +169,7 @@ body {
     text-transform: uppercase;
     transform-origin: center;
     overflow: hidden;
+    z-index: 2;
     -webkit-font-smoothing: antialiased;
 }
 
