@@ -42,6 +42,7 @@ elements.forEach(el => observer.observe(el));*/
 const svg = document.querySelector('.squiggle-line-1');
 const path = svg.querySelector('path');
 
+
 const animationStartOffset = document.body.clientHeight * 0.9;
 
 
@@ -55,6 +56,8 @@ const scroll = () => {
     path.style.strokeDasharray = `${pathLength}`;
     path.style.strokeDashoffset = `${pathLength * (1 - percentage)}`;
 };
+
+
 
 scroll();
 

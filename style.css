@@ -265,3 +265,30 @@ body {
     stroke-width: 0.8rem;
     z-index: 0;
 }
+
+
+.graph-time-spent {
+    height: 100vh;
+}
+
+.graph-base-container {
+    position: absolute;
+    top: 550%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.graph-time-normal {
+    position: absolute;
+    top: 553%;
+    left: 53%;
+    transform: translate(-50%, -50%);
+}
+
+.graph-time-scrolling {
+    position: absolute;
+    top: 541%;
+    left: 53%;
+    transform: translate(-50%, -50%);
+}
+
