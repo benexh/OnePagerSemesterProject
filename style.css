@@ -162,6 +162,7 @@ body {
     overflow: hidden;
     scroll-snap-align: center;
     transition: background-color 0.3s ease;
+    gap: 2vw;
 }
 
 .move-text-1 {
@@ -174,13 +175,14 @@ body {
 }
 
 .top-text {
-    transform: translateY(-100%);
     overflow: hidden;
+    will-change: transform;
 }
 
 .bottom-text {
-    transform: translateY(100%);
     overflow: hidden;
+    will-change: transform;
+
 }
 
 .combines {

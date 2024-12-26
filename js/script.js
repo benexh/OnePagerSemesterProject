@@ -36,33 +36,7 @@ const elements = document.querySelectorAll('.message-bubble');
 elements.forEach(el => observer.observe(el));*/
 
 
-window.onload = function() {
-    gsap.registerPlugin(ScrollTrigger);
 
-    gsap.fromTo(".top-text", {
-        y: "-80%",
-    }, {
-        y: "0",
-        scrollTrigger: {
-            trigger: ".move-text-1",
-            start: "top 60%",
-            end: "top 40%",
-            scrub: true,
-        }
-    });
-
-    gsap.fromTo(".bottom-text", {
-        y: "90%",
-    }, {
-        y: "0",
-        scrollTrigger: {
-            trigger: ".move-text-1",
-            start: "top 50%",
-            end: "top 30%",
-            scrub: true,
-        }
-    });
-};
 
 
 const svg = document.querySelector('.squiggle-line-1');
@@ -84,4 +58,24 @@ const scroll = () => {
 
 scroll();
 
-window.addEventListener('scroll', scroll);
+
+
+
+const introContainer = document.querySelector(".block-1")
+const topText = document.querySelector('.top-text');
+const bottomText = document.querySelector('.bottom-text');
+
+function scrollIntroduction () {
+    let {bottom} = introContainer.getBoundingClientRect();
+    let textTrans = bottom - window.innerHeight;
+    textTrans = textTrans < 0 ? 0 : textTrans;
+    topText.style.transform = `translateX(${-textTrans}px)`;
+    bottomText.style.transform = `translateX(${textTrans}px)`;
+
+
+}
+
+window.addEventListener('scroll', () => {
+    scroll();
+    scrollIntroduction();
+});
