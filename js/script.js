@@ -1,3 +1,5 @@
+/*const main = document.querySelector('main');
+
 window.addEventListener('scroll', () => {
     const scrollTop = window.scrollY || document.documentElement.scrollTop;
     const windowHeight = window.innerHeight;
@@ -23,7 +25,7 @@ window.addEventListener('scroll', () => {
 
 const elements = document.querySelectorAll('.message-bubble');
 
-/*const observer = new IntersectionObserver((entries) => {
+const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('visible');
@@ -33,7 +35,7 @@ const elements = document.querySelectorAll('.message-bubble');
     });
 }, { threshold: 0.5});
 
-elements.forEach(el => observer.observe(el));*/
+elements.forEach(el => observer.observe(el));
 
 
 
@@ -81,4 +83,42 @@ function scrollIntroduction () {
 window.addEventListener('scroll', () => {
     scroll();
     scrollIntroduction();
+});
+*/
+
+
+
+const circleSection = document.getElementById('explanation__circle');
+const circle = document.querySelector('.circle');
+
+function scrollCircle() {
+    let { top } = circleSection.getBoundingClientRect();
+    let scaleTop = Math.abs(top);
+    let scale = scaleTop / window.innerHeight;
+    scale = scale < 0 ? 0 : scale > 1 ? 1 : scale;
+
+    if (top <= 0) {
+        circle.style.transform = `translate(-50%, -50%) scale(${scale})`; // Scale the circle
+    } else {
+        circle.style.transform = `translate(-50%, -50%) scale(0)`; // Reset scale before section enters
+    }
+}
+
+const video = document.querySelector('video');
+const videoSection = document.querySelector('#scale__example');
+
+const headerLeft = document.querySelector('.text__header__left');
+const headerRight = document.querySelector('.text__header__right');
+
+function animateVideo() {
+    let { bottom } = videoSection.getBoundingClientRect();
+    let scale = 1 - ((bottom - window.innerHeight) * .0005);
+    scale = scale < .2 ? .2 : scale > 1 ? 1 : scale;
+    video.style.transform = `scale(${scale})`;
+}
+
+// Listen for scroll events on the main element
+document.querySelector('main').addEventListener('scroll', function () {
+    scrollCircle();
+    animateVideo();
 });
