@@ -117,8 +117,64 @@ function animateVideo() {
     video.style.transform = `scale(${scale})`;
 }
 
+// Text Reveal
+
+const textReveals = [...document.querySelectorAll(".text__reveal")];
+
+let callback = (entries) => {
+    entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+            [...entry.target.querySelectorAll('.line')].forEach((line, idx) => {
+                setTimeout(() => {
+                    line.style.transform = `translateY(0)`;
+                    line.style.opacity = `1`;
+                }, idx * 300);
+            });
+        }
+    });
+};
+
+let options = {
+    rootMargin: '0px 0px -30% 0px',
+    threshold: 1.0,
+};
+
+let observer = new IntersectionObserver(callback, options);
+
+textReveals.forEach((text) => {
+    const lines = text.innerText.split('\n'); // Split text into lines
+    const html = lines
+        .map((line) => `<span class="line" style="display: block; transform: translateY(100%); opacity: 0; transition: transform 0.5s ease-out, opacity 0.5s ease-out;">${line}</span>`)
+        .join('');
+    text.innerHTML = html;
+    observer.observe(text);
+});
+
+// Graph Animation
+
+document.addEventListener("DOMContentLoaded", () => {
+    const graphs = document.querySelectorAll(".graph__container");
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => {
+                    entry.target.classList.add("graph__visible");
+                }, 500);
+            } else {
+                entry.target.classList.remove("graph__visible");
+            }
+        });
+    }, {
+        threshold: 1.0 // Trigger when 50% of the graph is in view
+    });
+
+    graphs.forEach((graph) => observer.observe(graph));
+});
+
 // Listen for scroll events on the main element
 document.querySelector('main').addEventListener('scroll', function () {
     scrollCircle();
     animateVideo();
+    scroll();
 });
