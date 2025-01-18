@@ -34,6 +34,10 @@
     -webkit-font-smoothing: antialiased;
 }
 
+p {
+    font-family: 'PPMORI';
+}
+
 html, body {
     width: 100%;
     height: 100%;
@@ -94,6 +98,7 @@ section {
 .hero__title h1 {
     overflow: hidden;
     text-align: center;
+    font-size: 15cqi;
 }
 
 .hero__title__header {
@@ -105,6 +110,8 @@ section {
 .hero__cta h4 {
     font-size: clamp(2rem, 1.4cqi);
     font-weight: 100;
+    text-align: center;
+    text-wrap: nowrap;
 }
 
 .indicator__container {
@@ -117,9 +124,14 @@ section {
     top: 90%;
     left: 50%;
     transform: translate(-50%, -50%);
+    text-wrap: nowrap;
 }
 
-
+@media screen {
+    .mouse__indicator {
+        display: none;
+    }
+}
 
 /* Explanation 1 */
 
@@ -190,7 +202,7 @@ section {
 }
 
 .explanation__tow__text__container p {
-    font-size: 1.5rem;
+    font-size: 2em;
     text-wrap: balance;
 }
 
@@ -238,7 +250,7 @@ video {
     justify-content: center;
     align-items: center;
     justify-content: center;
-    background-color: var(--green);
+    background-color: var(--pink);
 }
 
 .explanation__three__text__container {
@@ -250,6 +262,10 @@ video {
     justify-content: space-evenly;
     text-align: center;
     font-size: 1.5rem;
+}
+
+.explanation__three__text__container p {
+    font-family: 'PPMORI';
 }
 
 .text__reveal {
@@ -273,49 +289,143 @@ video {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: var(--green);
+    background-color: var(--pink);
+    overflow: hidden;
 }
 
-#normal__graph {
+.graph__container {
+    width: 100%;
+    height: auto;
+}
+
+.graph__base {
+    width: 100%;
+    height: auto;
+}
+
+.bar__normal {
+    width: 8%;
+    height: auto;
     position: absolute;
-    left: 53%;
-    top: 53%;
+    top: 52%;
+    left: 38.5%;
     transform: translate(-50%,-50%);
+    z-index: 2;
 }
 
-#scrollytelling__graph {
+.bar__scrolly {
+    width: 8%;
+    height: auto;
     position: absolute;
-    left: 53%;
-    top: 41%;
-    transform: translate(-50%,-50%);
+    top: 38.75%;
+    left: 59%;
+    transform: translate(-50%, -50%);
 }
 
-
-#animated__path {
-    stroke-dasharray: 0;
-    stroke-dashoffset: 0;
-    transition: stroke-dashoffset 0.2s ease-out;
+#graph__rect {
+    transform-origin: bottom;
 }
-
-path {
-    stroke-linecap: round;
-    transition: stroke-dashoffset 0.3s ease-out;
-}
-
-#normal__path, #scrollytelling__path {
-    stroke-dasharray: 1000; /* Set a value larger than the path length */
-    stroke-dashoffset: 1000; /* Initially hide the path */
-    transition: stroke-dashoffset 2s ease-out; /* Smooth animation */
-}
-.graph__visible #normal__path, 
-.graph__visible #scrollytelling__path {
-    stroke-dashoffset: 0; /* Reveal the path */
-}
-
 /* Examples Gallery */
 
 #examples__gallery {
     position: relative;
-    height: 100vh;
+    height: 200%;
+    background-color: var(--green);
+}
+
+.header__container {
+    position: sticky;
+    top: 0;
     width: 100%;
+    text-align: center;
+}
+
+.header__container h2 {
+    padding-top: 20%;
+    font-size: 18cqi;
+}
+
+.examples__sticky {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: 50%;
+}
+
+.examples__slider {
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    will-change: transform;
+}
+
+.example {
+    position: relative;
+    width: 100%;
+    margin: 20vh 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.image__container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    height: 100%;
+    
+}
+
+.example__video {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.example__title {
+    margin-block-start: 0; /* Override the default start margin */
+    margin-block-end: 0;   /* Override the default end margin */
+    margin-top: .01em !important;
+    text-align: center;
+}
+
+.example p {
+    font-size: 1.4rem;
+    margin: 0;
+}
+
+@media only screen and (max-width: 600px) {
+    .header__container h2 {
+        padding-top: 90%;
+    }
+
+    .example {
+        width: 90%;
+    }
+}   
+
+/* Implement */
+
+#implement {
+    position: relative;
+    height: 200vh;
+    width: 100%;
+    background-color: var(--green);
+}
+
+#question {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#question p {
+    font-size: 1.5em;
 }

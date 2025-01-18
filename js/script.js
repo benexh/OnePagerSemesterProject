@@ -152,29 +152,110 @@ textReveals.forEach((text) => {
 
 // Graph Animation
 
-document.addEventListener("DOMContentLoaded", () => {
-    const graphs = document.querySelectorAll(".graph__container");
+function animateGraph() {
+    const rect = document.getElementById('graph__rect');
+    const rectPosition = rect.getBoundingClientRect().top;
+    const windowHeight = window.innerHeight;
 
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                setTimeout(() => {
-                    entry.target.classList.add("graph__visible");
-                }, 500);
-            } else {
-                entry.target.classList.remove("graph__visible");
-            }
-        });
-    }, {
-        threshold: 1.0 // Trigger when 50% of the graph is in view
+    if (rectPosition < windowHeight) {
+        const scrollyY = window.scrollY;
+        const maxHeight = 200;
+        const height = Math.min((scrollY + windowHeight - rectPosition) * 0.5, maxHeight);
+        rect.setAttribute('height', height);
+    }
+}
+
+//Examples 
+const examplesSlider = document.querySelector('.examples__slider');
+const examples = [
+    {
+        id: 'example-1',
+        name: 'Apple',
+        video: './vid/apple.mov',
+    },
+    {
+        id: 'example-2',
+        name: 'Lusion',
+        video: './vid/lusion.mov',
+    },
+    {
+        id: 'example-3',
+        name: 'Analogue',
+        video: './vid/analogue.mov',
+    },
+    {
+        id: 'example-4',
+        name: 'Scout',
+        video: './vid/scout.mov',
+    },
+];
+
+const createExamples = () => {
+    examples.forEach(example => {
+        // Create the container for each example
+        let exampleContainer = document.createElement('div');
+        exampleContainer.classList.add('example');
+
+        // Create the video container
+        let videoContainer = document.createElement('div');
+        videoContainer.className = 'image__container';
+
+        // Create the video element
+        let video = document.createElement('video');
+        video.classList.add('example__video');
+        video.setAttribute('autoplay', '');
+        video.setAttribute('loop', '');
+        video.setAttribute('muted', '');
+        video.setAttribute('playsinline', '');
+
+        // Add the video source
+        let source = document.createElement('source');
+        source.src = example.video;
+        source.type = 'video/mp4';
+        video.appendChild(source);
+
+        // Append video to container
+        videoContainer.appendChild(video);
+        exampleContainer.appendChild(videoContainer);
+
+        // Add the example name (optional)
+        let exampleTitle = document.createElement('p');
+        exampleTitle.innerText = example.name;
+        exampleTitle.classList.add('example__title');
+        exampleContainer.appendChild(exampleTitle);
+
+        // Append the example to the slider
+        document.querySelector('.examples__slider').appendChild(exampleContainer);
     });
+};
 
-    graphs.forEach((graph) => observer.observe(graph));
-});
+createExamples();
+
+
+let exampleTargetY = 0;
+let exampleCurrentY = 0;
+const lerp = (a, b, n) => (1 - n) * a + n * b;
+
+function animateExamples() {
+    let offsetTop = examplesSlider.parentElement.offsetTop;
+    let percentage = ((window.scrollY - offsetTop) / window.innerHeight) * 100;
+    percentage = Math.max(0, Math.min(percentage, examples.length * 50));
+    exampleTargetY = percentage * -2; // Adjust movement speed
+    exampleCurrentY = lerp(exampleCurrentY, exampleTargetY, 0.1);
+    examplesSlider.style.transform = `translate3d(0, ${exampleCurrentY}vh, 0)`;
+}
+
+function animate() {
+    animateExamples();
+    requestAnimationFrame(animate);
+}
+
+animate();
 
 // Listen for scroll events on the main element
 document.querySelector('main').addEventListener('scroll', function () {
     scrollCircle();
     animateVideo();
     scroll();
+    animateGraph();
 });
