@@ -171,7 +171,7 @@ const examples = [
     {
         id: 'example-1',
         name: 'Apple',
-        video: './img/lusion.png',
+        video: './img/apple.png',
     },
     {
         id: 'example-2',
@@ -181,12 +181,12 @@ const examples = [
     {
         id: 'example-3',
         name: 'Analogue',
-        video: './img/lusion.png',
+        video: './img/analogue.png',
     },
     {
         id: 'example-4',
         name: 'Scout',
-        video: './img/lusion.png',
+        video: './img/scout.png',
     },
 ];
 

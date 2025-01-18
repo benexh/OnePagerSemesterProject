@@ -280,6 +280,43 @@ video {
     transition: transform 0.3s ease-out, opacity 0.3s ease-out;
 }
 
+/* Benefits */
+
+#benefits {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    background-color: var(--pink);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.text__container__benefits {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+}
+.text__container__benefits h2 {
+    font-size: 3em;
+}
+.text__container__benefits p {
+    font-size: 1.5em;
+}
+
+@media only screen and (max-width: 600px) {
+    .text__container__benefits h2 {
+        font-size: 2em;
+    }
+    .text__container__benefits p {
+        font-size: 1.3em;
+    }
+}
+
 /* Graph */
 
 #engagement__graph {
@@ -330,7 +367,7 @@ video {
 #examples__gallery {
     position: relative;
     height: 200%;
-    background-color: var(--green);
+    background-color: var(--royal-blue);
 }
 
 .header__container {
@@ -382,7 +419,7 @@ video {
     position: relative;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     object-position: center;
 }
 
@@ -413,7 +450,7 @@ video {
     position: relative;
     height: 200vh;
     width: 100%;
-    background-color: var(--green);
+    background-color: var(--royal-blue);
 }
 
 #question {
@@ -426,4 +463,82 @@ video {
 
 #question p {
     font-size: 1.5em;
+}
+
+#implement__ways {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel {
+    width: 100%;
+    overflow: hidden;
+}
+
+.carousel__inner {
+    position: relative;
+    display: flex;
+    width: 400%;
+    animation: marquee 40s linear infinite;
+}
+
+.item {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    gap: 2em;
+    justify-content: center;
+    padding: 0 20vw 0 20vw;
+}
+
+
+.text__container {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    width: 40%;
+}
+
+.text__container h3 {
+    font-size: 3cqi;
+}
+
+.text__container p {
+    font-size: 1.3em;
+}
+
+@media only screen and (max-width: 600px) {
+    .item {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .item img {
+        width: 90vw;
+        height: auto;
+        object-fit: cover;
+    }
+
+    .text__container {
+        width: 100%;
+    }
+
+    .text__container h3 {
+        font-size: 2rem;
+    }
+}
+
+@keyframes marquee {
+    0% {
+        transform: translate(0%);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
 }
