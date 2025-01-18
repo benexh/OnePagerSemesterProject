@@ -171,22 +171,22 @@ const examples = [
     {
         id: 'example-1',
         name: 'Apple',
-        video: './vid/apple.mov',
+        video: './img/lusion.png',
     },
     {
         id: 'example-2',
         name: 'Lusion',
-        video: './vid/lusion.mov',
+        video: './img/lusion.png',
     },
     {
         id: 'example-3',
         name: 'Analogue',
-        video: './vid/analogue.mov',
+        video: './img/lusion.png',
     },
     {
         id: 'example-4',
         name: 'Scout',
-        video: './vid/scout.mov',
+        video: './img/lusion.png',
     },
 ];
 
@@ -196,27 +196,19 @@ const createExamples = () => {
         let exampleContainer = document.createElement('div');
         exampleContainer.classList.add('example');
 
-        // Create the video container
-        let videoContainer = document.createElement('div');
-        videoContainer.className = 'image__container';
+        // Create the image container (was video container)
+        let imageContainer = document.createElement('div');
+        imageContainer.className = 'image__container';
 
-        // Create the video element
-        let video = document.createElement('video');
-        video.classList.add('example__video');
-        video.setAttribute('autoplay', '');
-        video.setAttribute('loop', '');
-        video.setAttribute('muted', '');
-        video.setAttribute('playsinline', '');
+        // Create the image element (replace video element)
+        let image = document.createElement('img');
+        image.classList.add('example__image');
+        image.setAttribute('src', example.video); // Change from 'video' to 'image'
+        image.setAttribute('alt', example.name);  // Adding alt for accessibility
 
-        // Add the video source
-        let source = document.createElement('source');
-        source.src = example.video;
-        source.type = 'video/mp4';
-        video.appendChild(source);
-
-        // Append video to container
-        videoContainer.appendChild(video);
-        exampleContainer.appendChild(videoContainer);
+        // Append the image to container
+        imageContainer.appendChild(image);
+        exampleContainer.appendChild(imageContainer);
 
         // Add the example name (optional)
         let exampleTitle = document.createElement('p');
