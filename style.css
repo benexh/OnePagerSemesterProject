@@ -129,7 +129,8 @@ section {
 
 @media screen {
     .mouse__indicator {
-        display: none;
+        width: 100%;
+        height: auto;
     }
 }
 
@@ -298,7 +299,7 @@ video {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     gap: 2em;
 }
 .text__container__benefits h2 {
@@ -482,7 +483,7 @@ video {
 .carousel__inner {
     position: relative;
     display: flex;
-    width: 400%;
+    width: calc(100% * 6);
     animation: marquee 40s linear infinite;
 }
 
@@ -539,6 +540,67 @@ video {
         transform: translate(0%);
     }
     100% {
-        transform: translateX(-50%);
+        transform: translateX(calc(-100% / 6 * 3));
+    }
+}
+
+/* Footer */
+
+#footer {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--royal-blue);
+}
+
+.footer__text__container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.footer__paragraph__container {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.footer__text__container h2 {
+    font-size: 3rem;
+}
+
+.footer__text__container p {
+    font-size: 1.3rem;
+}
+
+.footer__text__container a {
+    text-decoration: underline;
+    color: white;
+    font-family: "PPMORI";
+}
+
+@media only screen and (max-width: 600px) {
+    .footer__text__container {
+        width: 80%;
+    }
+
+    #question {
+        width: 80%;
+    }
+
+    .explanation__tow__text__container {
+        width: 80%;
+        text-wrap: balance;
+    }
+
+    .hero__subtitle__text {
+        width: 80%;
+        text-align: center;
+    }
+
+    .hero__title__header {
+        font-size: 6rem;
     }
 }

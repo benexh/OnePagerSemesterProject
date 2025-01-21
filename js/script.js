@@ -152,7 +152,7 @@ textReveals.forEach((text) => {
 
 // Graph Animation
 
-function animateGraph() {
+/*function animateGraph() {
     const rect = document.getElementById('graph__rect');
     const rectPosition = rect.getBoundingClientRect().top;
     const windowHeight = window.innerHeight;
@@ -164,7 +164,7 @@ function animateGraph() {
         rect.setAttribute('height', height);
     }
 }
-
+*/
 //Examples 
 const examplesSlider = document.querySelector('.examples__slider');
 const examples = [
