@@ -171,22 +171,22 @@ const examples = [
     {
         id: 'example-1',
         name: 'Apple',
-        video: './img/apple.png',
+        video: './img/AppleGif.gif',
     },
     {
         id: 'example-2',
         name: 'Lusion',
-        video: './img/lusion.png',
+        video: './img/LusionGif.gif',
     },
     {
         id: 'example-3',
         name: 'Analogue',
-        video: './img/analogue.png',
+        video: './img/AnalogueGif.gif',
     },
     {
         id: 'example-4',
         name: 'Scout',
-        video: './img/scout.png',
+        video: './img/ScoutGif.gif',
     },
 ];
 
@@ -201,13 +201,13 @@ const createExamples = () => {
         imageContainer.className = 'image__container';
 
         // Create the image element (replace video element)
-        let image = document.createElement('img');
-        image.classList.add('example__image');
-        image.setAttribute('src', example.video); // Change from 'video' to 'image'
-        image.setAttribute('alt', example.name);  // Adding alt for accessibility
+        let gif = document.createElement('img');
+        gif.classList.add('example__image');
+        gif.setAttribute('src', example.video); // Change from 'video' to 'image'
+        gif.setAttribute('alt', example.name);  // Adding alt for accessibility
 
         // Append the image to container
-        imageContainer.appendChild(image);
+        imageContainer.appendChild(gif);
         exampleContainer.appendChild(imageContainer);
 
         // Add the example name (optional)

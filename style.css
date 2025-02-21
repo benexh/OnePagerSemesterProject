@@ -429,6 +429,8 @@ video {
     margin-block-end: 0;
     margin-top: 2em !important;
     text-align: center;
+    text-shadow: 2px 0 #001BBA, -2px 0 #001BBA, 0 2px #001BBA, 0 -2px #001BBA,
+               1px 1px #001BBA, -1px -1px #001BBA, 1px -1px #001BBA, -1px 1px #001BBA;
 }
 
 .example p {
